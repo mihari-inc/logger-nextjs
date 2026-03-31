@@ -1,0 +1,98 @@
+{
+  "name": "@mihari/nextjs",
+  "version": "0.1.0",
+  "description": "Open-source log collection integration for Next.js applications",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./server": {
+      "import": "./dist/server.mjs",
+      "require": "./dist/server.js",
+      "types": "./dist/server.d.ts"
+    },
+    "./middleware": {
+      "import": "./dist/middleware.mjs",
+      "require": "./dist/middleware.js",
+      "types": "./dist/middleware.d.ts"
+    },
+    "./client": {
+      "import": "./dist/client-logger.mjs",
+      "require": "./dist/client-logger.js",
+      "types": "./dist/client-logger.d.ts"
+    },
+    "./provider": {
+      "import": "./dist/provider.mjs",
+      "require": "./dist/provider.js",
+      "types": "./dist/provider.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "nextjs",
+    "logging",
+    "log-collection",
+    "mihari",
+    "observability",
+    "monitoring"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mihari/mihari-nextjs"
+  },
+  "peerDependencies": {
+    "next": ">=13.0.0",
+    "react": ">=18.0.0"
+  },
+  "dependencies": {
+    "pako": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/pako": "^2.0.3",
+    "@types/react": "^18.2.0",
+    "@types/node": "^20.0.0",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0"
+  },
+  "tsup": {
+    "entry": [
+      "src/index.ts",
+      "src/server.ts",
+      "src/client-logger.ts",
+      "src/middleware.ts",
+      "src/provider.tsx"
+    ],
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "dts": true,
+    "splitting": false,
+    "sourcemap": true,
+    "clean": true,
+    "external": [
+      "next",
+      "react"
+    ]
+  }
+}
