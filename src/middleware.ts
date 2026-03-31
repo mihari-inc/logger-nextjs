@@ -11,7 +11,7 @@ import type { LogEntry, MiddlewareConfig } from "./types";
  * @example
  * ```ts
  * // middleware.ts (project root)
- * import { createMihariMiddleware } from "@mihari/nextjs/middleware";
+ * import { createMihariMiddleware } from "@mihari/logger-nextjs/middleware";
  *
  * export const middleware = createMihariMiddleware({
  *   endpoint: "https://api.mihari.io/ingest",

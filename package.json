@@ -1,5 +1,5 @@
 {
-  "name": "@mihari/nextjs",
+  "name": "@mihari/logger-nextjs",
   "version": "0.1.0",
   "description": "Open-source log collection integration for Next.js applications",
   "main": "./dist/index.js",

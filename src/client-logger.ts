@@ -23,7 +23,7 @@ function getClientMeta(): ClientMeta {
  *
  * @example
  * ```ts
- * import { createClientLogger } from "@mihari/nextjs/client";
+ * import { createClientLogger } from "@mihari/logger-nextjs/client";
  *
  * const logger = createClientLogger({
  *   endpoint: "https://api.mihari.io/ingest",

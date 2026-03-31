@@ -10,7 +10,7 @@ import type { Logger } from "./types";
  *
  * @example
  * ```tsx
- * import { useLogger } from "@mihari/nextjs/provider";
+ * import { useLogger } from "@mihari/logger-nextjs/provider";
  *
  * function MyComponent() {
  *   const logger = useLogger();

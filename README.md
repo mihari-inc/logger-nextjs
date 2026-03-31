@@ -1,4 +1,4 @@
-# @mihari/nextjs
+# @mihari/logger-nextjs
 
 Open-source log collection integration for Next.js applications. Captures server-side and client-side logs and sends them to the Mihari ingest API with batching, retry, and gzip compression.
 
@@ -17,11 +17,11 @@ Open-source log collection integration for Next.js applications. Captures server
 ## Installation
 
 ```bash
-npm install @mihari/nextjs
+npm install @mihari/logger-nextjs
 # or
-pnpm add @mihari/nextjs
+pnpm add @mihari/logger-nextjs
 # or
-yarn add @mihari/nextjs
+yarn add @mihari/logger-nextjs
 ```
 
 ### Peer dependencies
@@ -48,7 +48,7 @@ NEXT_PUBLIC_MIHARI_ENDPOINT=https://api.mihari.io/ingest
 
 ```tsx
 // app/layout.tsx
-import { MihariProvider } from "@mihari/nextjs/provider";
+import { MihariProvider } from "@mihari/logger-nextjs/provider";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ```tsx
 "use client";
-import { useLogger } from "@mihari/nextjs/provider";
+import { useLogger } from "@mihari/logger-nextjs/provider";
 
 export function TrackableButton() {
   const logger = useLogger();
@@ -87,7 +87,7 @@ export function TrackableButton() {
 
 ```ts
 // app/api/data/route.ts
-import { createServerLogger } from "@mihari/nextjs/server";
+import { createServerLogger } from "@mihari/logger-nextjs/server";
 
 const logger = createServerLogger({
   endpoint: process.env.MIHARI_ENDPOINT!,
@@ -114,7 +114,7 @@ export async function GET() {
 
 ```ts
 // app/api/users/route.ts
-import { withRequestLogger } from "@mihari/nextjs/server";
+import { withRequestLogger } from "@mihari/logger-nextjs/server";
 
 export async function POST(request: Request) {
   const logger = withRequestLogger(request, {
@@ -132,7 +132,7 @@ export async function POST(request: Request) {
 
 ```ts
 // middleware.ts (project root)
-import { createMihariMiddleware } from "@mihari/nextjs/middleware";
+import { createMihariMiddleware } from "@mihari/logger-nextjs/middleware";
 
 export const middleware = createMihariMiddleware({
   endpoint: process.env.MIHARI_ENDPOINT!,
@@ -149,7 +149,7 @@ export const config = {
 
 ```tsx
 "use client";
-import { MihariErrorBoundary } from "@mihari/nextjs/provider";
+import { MihariErrorBoundary } from "@mihari/logger-nextjs/provider";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -172,7 +172,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 ```tsx
 // pages/_app.tsx
 import type { AppProps } from "next/app";
-import { MihariProvider } from "@mihari/nextjs/provider";
+import { MihariProvider } from "@mihari/logger-nextjs/provider";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -190,7 +190,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ```ts
 // pages/dashboard.tsx
-import { createServerLogger } from "@mihari/nextjs/server";
+import { createServerLogger } from "@mihari/logger-nextjs/server";
 import type { GetServerSideProps } from "next";
 
 const logger = createServerLogger({
@@ -211,7 +211,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 ```ts
 // pages/api/hello.ts
 import type { NextApiRequest, NextApiResponse } from "next";
-import { createServerLogger } from "@mihari/nextjs/server";
+import { createServerLogger } from "@mihari/logger-nextjs/server";
 
 const logger = createServerLogger({
   endpoint: process.env.MIHARI_ENDPOINT!,

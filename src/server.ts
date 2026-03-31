@@ -27,7 +27,7 @@ function getServerMeta(service: string): ServerMeta {
  *
  * @example
  * ```ts
- * import { createServerLogger } from "@mihari/nextjs/server";
+ * import { createServerLogger } from "@mihari/logger-nextjs/server";
  *
  * const logger = createServerLogger({
  *   endpoint: "https://api.mihari.io/ingest",
@@ -61,7 +61,7 @@ export function createServerLogger(config: ServerLoggerConfig): Logger & { shutd
  *
  * @example
  * ```ts
- * import { withRequestLogger } from "@mihari/nextjs/server";
+ * import { withRequestLogger } from "@mihari/logger-nextjs/server";
  *
  * export async function GET(request: Request) {
  *   const logger = withRequestLogger(request, {

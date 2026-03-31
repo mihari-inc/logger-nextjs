@@ -14,7 +14,7 @@ export const MihariContext = createContext<Logger | null>(null);
  * @example
  * ```tsx
  * // app/layout.tsx (App Router)
- * import { MihariProvider } from "@mihari/nextjs/provider";
+ * import { MihariProvider } from "@mihari/logger-nextjs/provider";
  *
  * export default function RootLayout({ children }) {
  *   return (
@@ -85,7 +85,7 @@ export function MihariProvider({
  *
  * @example
  * ```tsx
- * import { MihariErrorBoundary } from "@mihari/nextjs/provider";
+ * import { MihariErrorBoundary } from "@mihari/logger-nextjs/provider";
  *
  * function App() {
  *   return (
