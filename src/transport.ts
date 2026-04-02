@@ -146,7 +146,8 @@ export class Transport {
       const response = await fetch(this.endpoint, {
         method: "POST",
         headers,
-        body,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        body: body as any,
       });
 
       if (response.status === 202) {
